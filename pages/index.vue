@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import type { ClipResponse } from '~/types'
 
-// defineOgImageComponent('SEOCard', {
-//   title: 'Jerma Clip Search',
-//   description: 'Search for twitch clips of Jerma985 by title, game, and date.',
-// })
-
 defineOgImageComponent('NuxtSeo', {
   title: 'Jerma Clip Search',
   description: 'Search for twitch clips of Jerma985 by title, game, and date.',

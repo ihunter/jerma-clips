@@ -13,28 +13,30 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "devDependencies": {
-    "@antfu/eslint-config": "^4.3.0",
-    "@mdi/font": "^7.4.47",
-    "@nuxt/devtools": "^2.1.0",
-    "@nuxtjs/seo": "^2.2.0",
+  "dependencies": {
+    "@nuxtjs/seo": "^3.0.1",
     "@pinia/nuxt": "^0.10.1",
-    "@vueuse/core": "^12.7.0",
-    "@vueuse/nuxt": "^12.7.0",
-    "@vueuse/router": "^12.7.0",
-    "dayjs-nuxt": "^2.1.11",
-    "eslint": "^9.21.0",
-    "mongoose": "^8.10.2",
+    "@vueuse/core": "^13.0.0",
+    "@vueuse/nuxt": "^13.0.0",
+    "@vueuse/router": "^13.0.0",
+    "dayjs": "^1.11.13",
+    "mongoose": "^8.13.1",
     "mongoose-paginate-v2": "^1.9.0",
-    "nuxt": "^3.15.4",
+    "nuxt": "^3.16.2",
     "nuxt-gtag": "^3.0.2",
     "pinia": "^3.0.1",
     "pinia-plugin-persistedstate": "^4.2.0",
-    "sass-embedded": "^1.85.1",
-    "typescript": "^5.7.3",
+    "sass-embedded": "^1.86.1",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
-    "vue-tsc": "^2.2.4",
-    "vuetify-nuxt-module": "^0.18.3"
+    "vuetify-nuxt-module": "^0.18.5"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.11.0",
+    "@mdi/font": "^7.4.47",
+    "@nuxt/devtools": "^2.3.2",
+    "eslint": "^9.23.0",
+    "typescript": "^5.8.2",
+    "vue-tsc": "^2.2.8"
   }
 }

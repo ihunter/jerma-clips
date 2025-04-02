@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    'dayjs-nuxt',
     'vuetify-nuxt-module',
     '@vueuse/nuxt',
     '@pinia/nuxt',
@@ -75,10 +74,6 @@ export default defineNuxtConfig({
       httpOnly: false,
     },
     storage: 'cookies',
-  },
-
-  dayjs: {
-    plugins: ['customParseFormat', 'utc', 'relativeTime', 'timezone', 'duration'],
   },
 
   vuetify: {
