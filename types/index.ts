@@ -41,3 +41,26 @@ export interface GameResponse {
   box_art_url: string
   name: string
 }
+
+export interface Search {
+  _id: string
+  ip: string
+  userAgent: string
+  title: string
+  createdAt: string
+  updateAt: string
+}
+
+export interface SearchResponse {
+  docs: Search[]
+  totalDocs: number
+  offset: number
+  limit: number
+  totalPages: number
+  page: number
+  pagingCounter: number
+  hasPrevPage: boolean
+  hasNextPage: boolean
+  prevPage: number | null
+  nextPage: number | null
+}
