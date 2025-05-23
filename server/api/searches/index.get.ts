@@ -1,23 +1,25 @@
-import { Search } from '~/server/models/search.model'
+// import { Search } from '~/server/models/search.model'
 
-const runtimeConfig = useRuntimeConfig()
+// const runtimeConfig = useRuntimeConfig()
 
-export default defineEventHandler(async (event) => {
-  interface QueryParams {
-    page: string
-    limit: string
-  }
+export default defineEventHandler(async (_event) => {
+  return null
 
-  const { page, limit } = getQuery<QueryParams>(event)
+  // interface QueryParams {
+  //   page: string
+  //   limit: string
+  // }
 
-  try {
-    return await Search.paginate({}, {
-      page: Number.isNaN(Number.parseInt(page)) ? 1 : Number.parseInt(page),
-      limit: Number.isNaN(Number.parseInt(limit)) ? 12 : Math.min(Number.parseInt(limit), runtimeConfig.public.limit),
-      sort: { createdAt: -1 },
-    })
-  }
-  catch (error) {
-    return error
-  }
+  // const { page, limit } = getQuery<QueryParams>(event)
+
+  // try {
+  //   return await Search.paginate({}, {
+  //     page: Number.isNaN(Number.parseInt(page)) ? 1 : Number.parseInt(page),
+  //     limit: Number.isNaN(Number.parseInt(limit)) ? 12 : Math.min(Number.parseInt(limit), runtimeConfig.public.limit),
+  //     sort: { createdAt: -1 },
+  //   })
+  // }
+  // catch (error) {
+  //   return error
+  // }
 })
