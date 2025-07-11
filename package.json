@@ -20,7 +20,7 @@
     "@vueuse/nuxt": "^13.5.0",
     "@vueuse/router": "^13.5.0",
     "dayjs": "^1.11.13",
-    "mongoose": "^8.16.2",
+    "mongoose": "^8.16.3",
     "mongoose-paginate-v2": "^1.9.1",
     "nuxt": "^3.17.6",
     "nuxt-gtag": "^3.0.3",
