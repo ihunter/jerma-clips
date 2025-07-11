@@ -86,9 +86,17 @@ onMounted(() => {
       </v-col>
     </v-row>
 
-    <v-row v-if="status !== 'pending'">
+    <v-row>
       <v-col>
-        <v-pagination v-model="query.page" :length="data.totalPages" variant="tonal" color="primary" @update:model-value="setPage" />
+        <ClientOnly>
+          <v-pagination
+            v-model="query.page"
+            :length="data.totalPages"
+            variant="tonal"
+            color="primary"
+            @update:model-value="setPage"
+          />
+        </ClientOnly>
       </v-col>
     </v-row>
 

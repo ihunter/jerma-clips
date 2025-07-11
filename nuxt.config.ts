@@ -91,22 +91,6 @@ export default defineNuxtConfig({
     storage: 'cookies',
   },
 
-  // vuetify: {
-  //   vuetifyOptions: {
-  //     theme: {
-  //       defaultTheme: 'dark',
-  //       themes: {
-  //         dark: {
-  //           colors: {
-  //             primary: '#0AFC9E',
-  //             secondary: '#1D4435',
-  //           },
-  //         },
-  //       },
-  //     },
-  //   },
-  // },
-
   typescript: {
     strict: false,
   },

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useDate } from 'vuetify'
+
 const dayjs = useDayjs()
 const adapter = useDate()
 
