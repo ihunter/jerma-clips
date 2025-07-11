@@ -1,14 +1,24 @@
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    'vuetify-nuxt-module',
     '@vueuse/nuxt',
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
     '@nuxtjs/seo',
     'nuxt-gtag',
+    (_options, nuxt) => {
+      nuxt.hooks.hook('vite:extendConfig', (config) => {
+        config.plugins.push(vuetify({ autoImport: true }))
+      })
+    },
   ],
+
+  build: {
+    transpile: ['vuetify'],
+  },
 
   gtag: {
     id: 'G-4WX9B5T3EK',
@@ -50,6 +60,11 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    vue: {
+      template: {
+        transformAssetUrls,
+      },
+    },
     css: {
       preprocessorOptions: {
         scss: {
@@ -76,21 +91,21 @@ export default defineNuxtConfig({
     storage: 'cookies',
   },
 
-  vuetify: {
-    vuetifyOptions: {
-      theme: {
-        defaultTheme: 'dark',
-        themes: {
-          dark: {
-            colors: {
-              primary: '#0AFC9E',
-              secondary: '#1D4435',
-            },
-          },
-        },
-      },
-    },
-  },
+  // vuetify: {
+  //   vuetifyOptions: {
+  //     theme: {
+  //       defaultTheme: 'dark',
+  //       themes: {
+  //         dark: {
+  //           colors: {
+  //             primary: '#0AFC9E',
+  //             secondary: '#1D4435',
+  //           },
+  //         },
+  //       },
+  //     },
+  //   },
+  // },
 
   typescript: {
     strict: false,
