@@ -18,6 +18,8 @@ const { data, status } = await useFetch<ClipResponse>('/api/clips', {
   query,
 })
 
+const totalPages = data.value.totalPages
+
 const clipsFound = computed(() => {
   return data.value != null && data.value.docs.length
 })
@@ -88,15 +90,13 @@ onMounted(() => {
 
     <v-row>
       <v-col>
-        <ClientOnly>
-          <v-pagination
-            v-model="query.page"
-            :length="data.totalPages"
-            variant="tonal"
-            color="primary"
-            @update:model-value="setPage"
-          />
-        </ClientOnly>
+        <v-pagination
+          v-model="query.page"
+          :length="totalPages"
+          variant="tonal"
+          color="primary"
+          @update:model-value="setPage"
+        />
       </v-col>
     </v-row>
 
