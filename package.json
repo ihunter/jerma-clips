@@ -34,7 +34,6 @@
   "devDependencies": {
     "@antfu/eslint-config": "^4.17.0",
     "@nuxt/devtools": "^2.6.2",
-    "@types/mongoose": "^5.11.96",
     "eslint": "^9.31.0",
     "typescript": "^5.8.3",
     "vite-plugin-vuetify": "^2.1.1",
