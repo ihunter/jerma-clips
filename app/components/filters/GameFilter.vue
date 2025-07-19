@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { GameResponse } from '~/types'
-
 const { updateQuery, query } = useQueryBuilder()
 
 const game = ref(query.value.game)

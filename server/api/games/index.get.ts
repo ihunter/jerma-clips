@@ -1,4 +1,4 @@
-import { Game } from '~/server/models/game.model'
+import { Game } from '~~/server/models/game.model'
 
 export default defineCachedEventHandler(async (event) => {
   interface QueryParams {

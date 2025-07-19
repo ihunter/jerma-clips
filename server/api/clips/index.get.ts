@@ -1,6 +1,6 @@
-import { Clip } from '~/server/models/clip.model'
-import { Game } from '~/server/models/game.model'
-import { clipsQuery } from '~/server/utils/queryParser'
+import { Clip } from '~~/server/models/clip.model'
+import { Game } from '~~/server/models/game.model'
+import { clipsQuery } from '~~/server/utils/queryParser'
 
 const runtimeConfig = useRuntimeConfig()
 
