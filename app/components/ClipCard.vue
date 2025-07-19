@@ -15,7 +15,7 @@ const props = defineProps<{
   gameBoxArtUrl?: string
 }>()
 
-const dayjs = useDayjs()
+const { $dayjs: dayjs } = useNuxtApp()
 const timezoneStore = useTimezoneStore()
 
 const timeFromNow = computed(() => dayjs(props.createdAt).tz(timezoneStore.userTimezone).fromNow())

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useDate } from 'vuetify'
 
-const dayjs = useDayjs()
+const { $dayjs: dayjs } = useNuxtApp()
 const adapter = useDate()
 
 const { updateQuery, query } = useQueryBuilder()

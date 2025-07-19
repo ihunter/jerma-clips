@@ -2,7 +2,7 @@ import type { Document, PaginateModel } from 'mongoose'
 import { model, Schema } from 'mongoose'
 import mongoosePaginate from 'mongoose-paginate-v2'
 
-interface IClip {
+interface IClip extends Document {
   url: string
   broadcaster_id: string
   broadcaster_name: string
@@ -60,7 +60,7 @@ const ClipSchema = new Schema({
     type: String,
     required: true,
   },
-  duraction: {
+  duration: {
     type: Number,
     required: false,
   },

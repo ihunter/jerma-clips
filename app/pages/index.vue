@@ -22,7 +22,7 @@ const clipsFound = computed(() => {
   return data.value != null && data.value.docs.length
 })
 
-const dayjs = useDayjs()
+const { $dayjs: dayjs } = useNuxtApp()
 const timezoneStore = useTimezoneStore()
 
 onMounted(() => {

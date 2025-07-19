@@ -37,21 +37,27 @@ export function useQueryBuilder() {
     })
   }
 
+  function normalizeParam(param: string | string[]) {
+    return Array.isArray(param) ? param[0] : param
+  }
+
+  function normalizeArrayParam(param: string | string[]) {
+    return Array.isArray(param) ? param : [param].filter(Boolean)
+  }
+
   const query = computed(() => {
-    const title = Array.isArray(route.query.title) ? route.query.title[0] : route.query.title
-    const game = Array.isArray(route.query.game) ? route.query.game : [route.query.game].filter(Boolean)
-    const broadcaster = Array.isArray(route.query.broadcaster) ? route.query.broadcaster[0] : route.query.broadcaster
-    const startDate = Array.isArray(route.query.startDate) ? route.query.startDate[0] : route.query.startDate
-    const endDate = Array.isArray(route.query.endDate) ? route.query.endDate[0] : route.query.endDate
-    const page = Array.isArray(route.query.page) ? route.query.page[0] : route.query.page
-    const limit = Array.isArray(route.query.limit) ? route.query.limit[0] : route.query.limit
-    const sort = Array.isArray(route.query.sort) ? route.query.sort[0] : route.query.sort
-    const creator = Array.isArray(route.query.creator) ? route.query.creator[0] : route.query.creator
+    const title = normalizeParam(route.query.title)
+    const game = normalizeArrayParam(route.query.game)
+    const startDate = normalizeParam(route.query.startDate)
+    const endDate = normalizeParam(route.query.endDate)
+    const page = normalizeParam(route.query.page)
+    const limit = normalizeParam(route.query.limit)
+    const sort = normalizeParam(route.query.sort)
+    const creator = normalizeParam(route.query.creator)
 
     return {
       title,
       game,
-      broadcaster,
       startDate,
       endDate,
       limit: Number.parseInt(limit) || 12,
@@ -61,5 +67,10 @@ export function useQueryBuilder() {
     }
   })
 
-  return { setQuery, updateQuery, clearQuery, query }
+  return {
+    setQuery,
+    updateQuery,
+    clearQuery,
+    query,
+  }
 }
