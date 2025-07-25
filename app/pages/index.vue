@@ -16,7 +16,7 @@ const { data, status } = await useFetch<ClipResponse>('/api/clips', {
   query,
 })
 
-const totalPages = data.value?.totalPages
+const totalPages = computed(() => data.value?.totalPages)
 
 const clipsFound = computed(() => {
   return data.value != null && data.value.docs.length
