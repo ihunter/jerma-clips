@@ -8,7 +8,7 @@ const sortTypes = [
 
 const { updateQuery } = useQueryBuilder()
 
-function setSort(sortType) {
+function setSort(sortType: string) {
   updateQuery({ sort: sortType })
 }
 </script>

@@ -9,20 +9,20 @@ defineOgImageComponent('NuxtSeo', {
 const { updateQuery, query } = useQueryBuilder()
 
 function setPage(page: number) {
-  updateQuery({ page })
+  updateQuery({ page: page.toString() })
 }
 
 const { data, status } = await useFetch<ClipResponse>('/api/clips', {
   query,
 })
 
-const totalPages = data.value.totalPages
+const totalPages = data.value?.totalPages
 
 const clipsFound = computed(() => {
   return data.value != null && data.value.docs.length
 })
 
-const { $dayjs: dayjs } = useNuxtApp()
+const { dayjs } = useDayjs()
 const timezoneStore = useTimezoneStore()
 
 onMounted(() => {
@@ -55,7 +55,7 @@ onMounted(() => {
     </v-row>
 
     <v-row v-else-if="clipsFound">
-      <v-col v-for="clip in data.docs" :key="clip.id" cols="12" sm="6" md="4" xl="3">
+      <v-col v-for="clip in data?.docs" :key="clip.id" cols="12" sm="6" md="4" xl="3">
         <ClipCard
           :id="clip.id"
           :url="clip.url"

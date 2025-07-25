@@ -9,13 +9,13 @@ const props = defineProps<{
   viewCount: number
   createdAt: string
   thumbnailUrl: string
-  duration?: number
+  duration: number
   gameId?: string
   gameName?: string
   gameBoxArtUrl?: string
 }>()
 
-const { $dayjs: dayjs } = useNuxtApp()
+const { dayjs } = useDayjs()
 const timezoneStore = useTimezoneStore()
 
 const timeFromNow = computed(() => dayjs(props.createdAt).tz(timezoneStore.userTimezone).fromNow())
@@ -28,7 +28,7 @@ const createdAtTime = computed(() => dayjs(props.createdAt).tz(timezoneStore.use
 
 const formattedGameBoxArtUrl = computed(() => {
   // https://static-cdn.jtvnw.net/ttv-boxart/509658-{width}x{height}.jpg
-  return props.gameBoxArtUrl ? props.gameBoxArtUrl.replace('{width}x{height}', '104x144') : null
+  return props.gameBoxArtUrl?.replace('{width}x{height}', '104x144')
 })
 
 const formattedViewCount = computed(() => props.viewCount.toLocaleString())
@@ -101,7 +101,7 @@ function setDateFilter() {
           :src="formattedGameBoxArtUrl"
           :title="gameName"
           :alt="`Game box art for ${gameName}`"
-          @click="updateQuery({ game: [gameId] })"
+          @click="gameId && updateQuery({ game: [gameId] }) "
         >
           <template #placeholder>
             <v-img src="~/assets/images/game_box_art_placeholder.jpg" alt="placeholder" cover />

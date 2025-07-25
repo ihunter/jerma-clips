@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     'nuxt-gtag',
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
-        config.plugins.push(vuetify({ autoImport: true }))
+        config.plugins?.push(vuetify({ autoImport: true }))
       })
     },
   ],
@@ -85,7 +85,7 @@ export default defineNuxtConfig({
   },
 
   typescript: {
-    strict: false,
+    strict: true,
   },
 
   compatibilityDate: '2024-08-08',

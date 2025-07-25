@@ -1,15 +1,17 @@
+import type { LocationQueryValue } from 'vue-router'
+
 interface QueryParams {
-  title?: string
-  creator?: string
-  game?: string[]
-  startDate?: string
-  endDate?: string
-  page?: number
-  sort?: string
-  limit?: number
+  title?: LocationQueryValue
+  creator?: LocationQueryValue
+  game?: LocationQueryValue[]
+  startDate?: LocationQueryValue
+  endDate?: LocationQueryValue
+  page?: LocationQueryValue
+  sort?: LocationQueryValue
+  limit?: LocationQueryValue
 }
 
-export function useQueryBuilder() {
+export default function () {
   const route = useRoute()
   const router = useRouter()
 
@@ -37,12 +39,12 @@ export function useQueryBuilder() {
     })
   }
 
-  function normalizeParam(param: string | string[]) {
+  function normalizeParam(param: LocationQueryValue | LocationQueryValue[] | undefined) {
     return Array.isArray(param) ? param[0] : param
   }
 
-  function normalizeArrayParam(param: string | string[]) {
-    return Array.isArray(param) ? param : [param].filter(Boolean)
+  function normalizeArrayParam(param: LocationQueryValue | LocationQueryValue[] | undefined) {
+    return Array.isArray(param) ? param : [param].filter(param => param !== undefined)
   }
 
   const query = computed(() => {
@@ -60,8 +62,8 @@ export function useQueryBuilder() {
       game,
       startDate,
       endDate,
-      limit: Number.parseInt(limit) || 12,
-      page: Number.parseInt(page) || 1,
+      limit: limit ? Number.parseInt(limit) : 12,
+      page: page ? Number.parseInt(page) : 1,
       sort,
       creator,
     }
