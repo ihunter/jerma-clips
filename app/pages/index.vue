@@ -1,7 +1,9 @@
 <script setup lang="ts">
 const { query, updateQuery } = useQueryBuilder()
+const { y } = useWindowScroll({ behavior: 'smooth' })
 
 function setPage(page: number) {
+  y.value = 0
   updateQuery({ page: page.toString() })
 }
 
