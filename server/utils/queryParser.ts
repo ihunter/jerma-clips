@@ -1,28 +1,5 @@
 import type { H3Event } from 'h3'
 
-interface QueryParams {
-  title?: string
-  page?: string
-  sort?: string
-  limit?: string
-  creator?: string
-  game?: string | string[] // Allow multiple games
-  startDate?: string
-  endDate?: string
-}
-
-interface MongooseQuery {
-  $text?: { $search: string }
-  creator_name?: { $regex: RegExp }
-  game_id?: string | { $in: string[] }
-  created_at?: {
-    $lt?: string
-    $gt?: string
-  }
-}
-
-type SortOrder = 'views' | 'oldest' | 'newest' | 'title'
-
 function createDateQuery(startDate?: string, endDate?: string) {
   const created_at: MongooseQuery['created_at'] = {}
 
@@ -77,7 +54,7 @@ function parseLimit(limit?: string, defaultLimit = 12, maxLimit = 100): number {
 }
 
 export function clipsQuery(event: H3Event) {
-  const { title, page, sort, limit, creator, game, startDate, endDate } = getQuery<QueryParams>(event)
+  const { title, page, sort, limit, creator, game, startDate, endDate } = getQuery<ClipQueryParams>(event)
 
   const query: MongooseQuery = {}
 

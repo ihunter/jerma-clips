@@ -1,12 +1,7 @@
 import { Game } from '~~/server/models/game.model'
 
 export default defineEventHandler(async (event) => {
-  interface QueryParams {
-    search: string
-    game: string | string[]
-  }
-
-  const { search, game } = getQuery<QueryParams>(event)
+  const { search, game } = getQuery<GameQueryParams>(event)
 
   if (!search && !game)
     return []

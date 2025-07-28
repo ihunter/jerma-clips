@@ -1,21 +1,10 @@
 import type { LocationQueryValue } from 'vue-router'
 
-interface QueryParams {
-  title?: LocationQueryValue
-  creator?: LocationQueryValue
-  game?: LocationQueryValue[]
-  startDate?: LocationQueryValue
-  endDate?: LocationQueryValue
-  page?: LocationQueryValue
-  sort?: LocationQueryValue
-  limit?: LocationQueryValue
-}
-
 export default function () {
   const route = useRoute()
   const router = useRouter()
 
-  function setQuery(queryParams: QueryParams) {
+  function setQuery(queryParams: ClipQueryParams) {
     router.push({
       query: {
         ...queryParams,
@@ -23,7 +12,7 @@ export default function () {
     })
   }
 
-  function updateQuery(queryParams: QueryParams) {
+  function updateQuery(queryParams: ClipQueryParams) {
     router.push({
       query: {
         ...route.query,
@@ -70,9 +59,9 @@ export default function () {
   })
 
   return {
+    query,
     setQuery,
     updateQuery,
     clearQuery,
-    query,
   }
 }
