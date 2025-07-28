@@ -1,32 +1,20 @@
 <script setup lang="ts">
-defineOgImageComponent('NuxtSeo', {
-  title: 'Jerma Clip Search',
-  description: 'Search for twitch clips of Jerma985 by title, game, and date.',
-  theme: '#0AFC9E',
-  colorMode: 'dark',
-})
-
-const { updateQuery, query } = useQueryBuilder()
+const { query, updateQuery } = useQueryBuilder()
 
 function setPage(page: number) {
   updateQuery({ page: page.toString() })
 }
 
-const { data, status } = await useFetch<ClipResponse>('/api/clips', {
+const { data, pending } = await useFetch<ClipResponse>('/api/clips', {
   query,
 })
 
-const totalPages = computed(() => data.value?.totalPages)
-
-const clipsFound = computed(() => {
-  return data.value != null && data.value.docs.length
+const totalPages = computed(() => {
+  return data.value ? data.value.totalPages : 24
 })
 
-const { dayjs } = useDayjs()
-const timezoneStore = useTimezoneStore()
-
-onMounted(() => {
-  timezoneStore.userTimezone = dayjs.tz.guess()
+const hasClips = computed(() => {
+  return !!data.value && data.value.docs.length > 0
 })
 </script>
 
@@ -48,13 +36,13 @@ onMounted(() => {
       </v-col>
     </v-row>
 
-    <v-row v-if="status === 'pending'">
+    <v-row v-if="pending">
       <v-col v-for="(_, index) in query.limit" :key="index" cols="12" sm="6" md="4" xl="3">
         <ClipCardSkeleton />
       </v-col>
     </v-row>
 
-    <v-row v-else-if="clipsFound">
+    <v-row v-else-if="hasClips">
       <v-col v-for="clip in data?.docs" :key="clip.id" cols="12" sm="6" md="4" xl="3">
         <ClipCard
           :id="clip.id"
@@ -74,7 +62,7 @@ onMounted(() => {
       </v-col>
     </v-row>
 
-    <v-row v-else-if="!clipsFound">
+    <v-row v-else-if="!hasClips">
       <v-col class="d-flex flex-column justify-center text-center ga-8">
         <h1 class="text-h1">
           No Clips Found

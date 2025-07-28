@@ -4,7 +4,7 @@ import { createVuetify } from 'vuetify'
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 
-export default defineNuxtPlugin((app) => {
+export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
     ssr: true,
     theme: {
@@ -19,5 +19,6 @@ export default defineNuxtPlugin((app) => {
       },
     },
   })
-  app.vueApp.use(vuetify)
+
+  nuxtApp.vueApp.use(vuetify)
 })

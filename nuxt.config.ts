@@ -11,7 +11,8 @@ export default defineNuxtConfig({
     'nuxt-gtag',
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
-        config.plugins?.push(vuetify({ autoImport: true }))
+        // @ts-expect-error: possibly 'undefined' error
+        config.plugins.push(vuetify({ autoImport: true }))
       })
     },
   ],
@@ -36,10 +37,6 @@ export default defineNuxtConfig({
     name: 'Jerma Clip Search',
     description: 'Search for twitch clips of Jerma985 by title, game, and date.',
     defaultLocale: 'en', // not needed if you have @nuxtjs/i18n installed
-  },
-
-  robots: {
-    disallow: ['/searches'],
   },
 
   app: {
