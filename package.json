@@ -21,7 +21,7 @@
     "@vueuse/nuxt": "^13.5.0",
     "@vueuse/router": "^13.5.0",
     "dayjs": "^1.11.13",
-    "mongoose": "^8.16.4",
+    "mongoose": "^8.16.5",
     "mongoose-paginate-v2": "^1.9.1",
     "nuxt": "^4.0.1",
     "nuxt-gtag": "^3.0.3",
@@ -32,9 +32,9 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.19.0",
+    "@antfu/eslint-config": "^5.0.0",
     "@nuxt/devtools": "^2.6.2",
-    "eslint": "^9.31.0",
+    "eslint": "^9.32.0",
     "typescript": "^5.8.3",
     "vite-plugin-vuetify": "^2.1.1",
     "vue-tsc": "^3.0.4",
