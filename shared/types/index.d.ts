@@ -95,6 +95,11 @@ export interface MongooseQuery {
 
 export type SortOrder = 'views' | 'oldest' | 'newest' | 'title'
 
+export interface SortType {
+  title: string
+  value: SortOrder
+}
+
 export interface ClipDocument extends Document {
   id: string
   url: string

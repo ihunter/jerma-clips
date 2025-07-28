@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const sortTypes = [
+const sortTypes: SortType[] = [
   { title: 'Most views', value: 'views' },
   { title: 'Date added (oldest)', value: 'oldest' },
   { title: 'Date added (newest)', value: 'newest' },
@@ -8,7 +8,7 @@ const sortTypes = [
 
 const { updateQuery } = useQueryBuilder()
 
-function setSort(sortType: string) {
+function setSort(sortType: SortOrder) {
   updateQuery({ sort: sortType })
 }
 </script>
