@@ -1,13 +1,13 @@
 import type { H3Event } from 'h3'
+import dayjs from 'dayjs'
 
 function createDateQuery(startDate?: string, endDate?: string) {
   const created_at: MongooseQuery['created_at'] = {}
-
   if (startDate)
-    created_at.$gte = startDate
+    created_at.$gte = dayjs(startDate).startOf('day').toISOString()
 
   if (endDate)
-    created_at.$lte = endDate
+    created_at.$lte = dayjs(endDate).endOf('day').toISOString()
 
   return Object.keys(created_at).length ? created_at : undefined
 }

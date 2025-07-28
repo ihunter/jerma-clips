@@ -1,23 +1,17 @@
 <script setup lang="ts">
-import { useDate } from 'vuetify'
-
 const { dayjs } = useDayjs()
-const adapter = useDate()
 
 const { updateQuery, query } = useQueryBuilder()
 
 const startDate = computed({
   get() {
-    if (!query.value.startDate)
-      return null
-
-    return adapter.parseISO(query.value.startDate)
+    return query.value.startDate ?? null
   },
   set(value: Date) {
     if (!value)
       clearDate()
 
-    updateQuery({ startDate: dayjs(value).format('YYYY-MM-DD') })
+    updateQuery({ startDate: dayjs(value).startOf('day').toISOString() })
   },
 })
 
