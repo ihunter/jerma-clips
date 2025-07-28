@@ -52,6 +52,10 @@ function parseLimit(limit?: string, defaultLimit = 12, maxLimit = 100): number {
   return parsed
 }
 
+function escapeRegex(string: string): string {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
 export default function (event: H3Event) {
   const { title, page, sort, limit, creator, game, startDate, endDate } = getQuery<ClipQueryParams>(event)
 
@@ -62,7 +66,7 @@ export default function (event: H3Event) {
   }
 
   if (creator?.trim()) {
-    query.creator_name = { $regex: new RegExp(`^${creator.trim()}$`, 'i') }
+    query.creator_name = { $regex: new RegExp(`^${escapeRegex(creator.trim())}$`, 'i') }
   }
 
   if (game) {
