@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
   const query = {
     $or: [
       { id: game },
-      { $text: { $search: search || '' } },
+      { $text: { $search: search } },
     ],
   }
 

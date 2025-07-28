@@ -53,7 +53,7 @@ function parseLimit(limit?: string, defaultLimit = 12, maxLimit = 100): number {
   return parsed
 }
 
-export function clipsQuery(event: H3Event) {
+export default function (event: H3Event) {
   const { title, page, sort, limit, creator, game, startDate, endDate } = getQuery<ClipQueryParams>(event)
 
   const query: MongooseQuery = {}
