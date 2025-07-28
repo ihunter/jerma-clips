@@ -38,10 +38,9 @@ const formattedDuration = computed(() => dayjs.duration(props.duration, 'seconds
 const { updateQuery } = useQueryBuilder()
 
 function setDateFilter() {
-  const tz = timezoneStore.userTimezone
   updateQuery({
-    startDate: dayjs(props.createdAt).tz(tz).format('YYYY-MM-DD'),
-    endDate: dayjs(props.createdAt).tz(tz).format('YYYY-MM-DD'),
+    startDate: dayjs(props.createdAt).startOf('day').toISOString(),
+    endDate: dayjs(props.createdAt).endOf('day').toISOString(),
   })
 }
 </script>
