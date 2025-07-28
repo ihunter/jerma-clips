@@ -70,7 +70,7 @@ export interface SearchResponse {
 export interface ClipQueryParams {
   title?: string
   page?: string
-  sort?: string
+  sort?: SortOrder
   limit?: string
   creator?: string
   game?: string | string[] // Allow multiple games
@@ -88,14 +88,15 @@ export interface MongooseQuery {
   creator_name?: { $regex: RegExp }
   game_id?: string | { $in: string[] }
   created_at?: {
-    $lt?: string
-    $gt?: string
+    $gte?: string
+    $lte?: string
   }
 }
 
 export type SortOrder = 'views' | 'oldest' | 'newest' | 'title'
 
-export interface IClip extends Document {
+export interface ClipDocument extends Document {
+  id: string
   url: string
   broadcaster_id: string
   broadcaster_name: string
@@ -103,9 +104,15 @@ export interface IClip extends Document {
   game_id: string
   title: string
   view_count: number
-  created_at: string
+  created_at: Date
   thumbnail_url: string
-  duration: number
+  duration?: number
+  game?: any // Virtual field
 }
 
-export interface ClipDocument extends Document, IClip {}
+export interface GameDocument extends Document {
+  id: string
+  name: string
+  box_art_url: string
+  clips?: any[] // Virtual field
+}

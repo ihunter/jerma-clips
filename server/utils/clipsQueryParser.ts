@@ -4,17 +4,16 @@ function createDateQuery(startDate?: string, endDate?: string) {
   const created_at: MongooseQuery['created_at'] = {}
 
   if (startDate)
-    created_at.$gt = startDate
+    created_at.$gte = startDate
+
   if (endDate)
-    created_at.$lt = endDate
+    created_at.$lte = endDate
 
   return Object.keys(created_at).length ? created_at : undefined
 }
 
-function createOrderQuery(sort?: string, title?: string) {
-  const sortType = sort as SortOrder
-
-  switch (sortType) {
+function createOrderQuery(sort?: SortOrder, title?: string) {
+  switch (sort) {
     case 'views':
       return { view_count: -1 }
     case 'oldest':

@@ -4,7 +4,8 @@ const GameSchema = new Schema({
   id: {
     type: String,
     required: true,
-    index: 1,
+    unique: true,
+    index: true,
   },
   name: {
     type: String,
@@ -25,4 +26,4 @@ GameSchema.virtual('clips', {
   foreignField: 'game_id',
 })
 
-export const Game = model('Game', GameSchema)
+export const Game = model<GameDocument>('Game', GameSchema)

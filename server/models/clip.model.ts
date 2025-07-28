@@ -6,7 +6,8 @@ const ClipSchema = new Schema({
   id: {
     type: String,
     required: true,
-    index: 1,
+    unique: true,
+    index: true,
   },
   url: {
     type: String,
@@ -36,12 +37,12 @@ const ClipSchema = new Schema({
   view_count: {
     type: Number,
     required: true,
-    index: 1,
+    index: true,
   },
   created_at: {
     type: Date,
     required: true,
-    index: 1,
+    index: true,
   },
   thumbnail_url: {
     type: String,
