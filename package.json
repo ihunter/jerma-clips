@@ -23,7 +23,7 @@
     "dayjs": "^1.11.13",
     "mongoose": "^8.16.5",
     "mongoose-paginate-v2": "^1.9.1",
-    "nuxt": "^4.0.1",
+    "nuxt": "^4.0.2",
     "nuxt-gtag": "^3.0.3",
     "pinia": "^3.0.3",
     "pinia-plugin-persistedstate": "^4.4.1",
@@ -38,6 +38,6 @@
     "typescript": "^5.8.3",
     "vite-plugin-vuetify": "^2.1.1",
     "vue-tsc": "^3.0.4",
-    "vuetify": "^3.9.2"
+    "vuetify": "^3.9.3"
   }
 }
