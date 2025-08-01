@@ -8,6 +8,9 @@ export default defineNitroPlugin(async (nitroApp) => {
     await mongoose.connect(mongodbUri, {
       maxPoolSize: 5,
       minPoolSize: 2,
+      maxIdleTimeMS: 30000,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
     })
 
     mongoose.connection.on('error', (error) => {
