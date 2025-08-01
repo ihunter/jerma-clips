@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { clipsLimit } = useRuntimeConfig().public
 const { query, updateQuery } = useQueryBuilder()
 const { y } = useWindowScroll({ behavior: 'smooth' })
 
@@ -9,14 +10,29 @@ function setPage(page: number) {
 
 const { data, pending } = await useFetch<ClipResponse>('/api/clips', {
   query,
+  default() {
+    return {
+      docs: [],
+      totalDocs: 0,
+      offset: 0,
+      limit: clipsLimit,
+      totalPages: 1,
+      page: 1,
+      pagingCounter: 1,
+      hasPrevPage: false,
+      hasNextPage: false,
+      prevPage: null,
+      nextPage: null,
+    }
+  },
 })
 
 const totalPages = computed(() => {
-  return data.value ? data.value.totalPages : 24
+  return data.value.totalPages
 })
 
 const hasClips = computed(() => {
-  return !!data.value && data.value.docs.length > 0
+  return data.value.docs.length > 0
 })
 </script>
 
