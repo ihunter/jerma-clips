@@ -28,7 +28,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     mongodbUri: '',
     public: {
-      clipsLimit: 24,
+      clipsLimit: 12,
     },
   },
 

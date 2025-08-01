@@ -4,6 +4,8 @@ export default function () {
   const route = useRoute()
   const router = useRouter()
 
+  const { clipsLimit } = useRuntimeConfig().public
+
   function setQuery(queryParams: ClipQueryParams) {
     router.push({
       query: {
@@ -51,7 +53,7 @@ export default function () {
       game,
       startDate,
       endDate,
-      limit: limit ? Number.parseInt(limit) : 12,
+      limit: limit ? Number.parseInt(limit) : clipsLimit,
       page: page ? Number.parseInt(page) : 1,
       sort,
       creator,

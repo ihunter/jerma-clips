@@ -2,7 +2,7 @@ import { Clip } from '~~/server/models/clip.model'
 import { Game } from '~~/server/models/game.model'
 
 export default defineEventHandler(async (event) => {
-  const runtimeConfig = useRuntimeConfig()
+  const { clipsLimit } = useRuntimeConfig().public
   const { query, page, order, limit } = clipsQueryParser(event)
 
   // Used to register model, otherwise populate won't work
@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
       populate: 'game',
       page,
       sort: order,
-      limit: Math.min(limit, runtimeConfig.public.limit),
+      limit: Math.min(limit, clipsLimit),
     })
   }
   catch (error) {
