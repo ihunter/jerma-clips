@@ -23,7 +23,7 @@ export default defineNitroPlugin(async (nitroApp) => {
 
     nitroApp.hooks.hook('close', async () => {
       try {
-        await mongoose.connection.close()
+        await mongoose.disconnect()
         console.log('MongoDB connection closed')
       }
       catch (error) {
