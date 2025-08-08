@@ -61,7 +61,7 @@ const hasClips = computed(() => {
     </v-row>
 
     <v-row v-else-if="hasClips">
-      <v-col v-for="clip in data?.docs" :key="clip.id" cols="12" sm="6" md="4" xl="3">
+      <v-col v-for="clip in data.docs" :key="clip.id" cols="12" sm="6" md="4" xl="3">
         <ClipCard
           :id="clip.id"
           :url="clip.url"
