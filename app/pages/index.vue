@@ -94,13 +94,15 @@ const hasClips = computed(() => {
 
     <v-row>
       <v-col>
-        <v-pagination
-          v-model="query.page"
-          :length="totalPages"
-          variant="tonal"
-          color="primary"
-          @update:model-value="setPage"
-        />
+        <ClientOnly>
+          <v-pagination
+            v-model="query.page"
+            :length="totalPages"
+            variant="tonal"
+            color="primary"
+            @update:model-value="setPage"
+          />
+        </ClientOnly>
       </v-col>
     </v-row>
 
