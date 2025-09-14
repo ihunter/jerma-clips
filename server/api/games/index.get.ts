@@ -17,6 +17,7 @@ export default defineEventHandler(async (event) => {
     return await Game.find(query)
   }
   catch (error) {
+    console.error(error)
     return error
   }
 })

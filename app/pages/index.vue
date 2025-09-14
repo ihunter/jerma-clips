@@ -10,6 +10,7 @@ function setPage(page: number) {
 
 const { data, pending } = await useFetch<ClipResponse>('/api/clips', {
   query,
+  key: JSON.stringify(query.value),
   default() {
     return {
       docs: [],
