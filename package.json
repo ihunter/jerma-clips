@@ -21,23 +21,23 @@
     "@vueuse/nuxt": "^14.1.0",
     "@vueuse/router": "^14.1.0",
     "dayjs": "^1.11.19",
-    "mongoose": "^9.0.1",
+    "mongoose": "^9.0.2",
     "mongoose-paginate-v2": "^1.9.1",
     "nuxt": "^4.2.2",
     "nuxt-gtag": "^4.1.0",
     "pinia": "^3.0.4",
     "pinia-plugin-persistedstate": "^4.7.1",
-    "sass-embedded": "^1.96.0",
-    "vue": "^3.5.25",
+    "sass-embedded": "^1.97.1",
+    "vue": "^3.5.26",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^6.6.1",
+    "@antfu/eslint-config": "^6.7.1",
     "@nuxt/devtools": "^3.1.1",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "typescript": "^5.9.3",
     "vite-plugin-vuetify": "^2.1.2",
-    "vue-tsc": "^3.1.8",
-    "vuetify": "^3.11.3"
+    "vue-tsc": "^3.2.0",
+    "vuetify": "^3.11.4"
   }
 }
