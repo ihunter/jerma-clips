@@ -14,10 +14,14 @@ export default defineEventHandler(async (event) => {
       page,
       sort: order,
       limit: Math.min(limit, clipsLimit),
+      lean: true,
     })
   }
   catch (error) {
-    console.error(error)
-    return error
+    console.error('Clip query error:', error)
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Failed to fetch clips',
+    })
   }
 })

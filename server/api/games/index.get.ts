@@ -6,18 +6,26 @@ export default defineEventHandler(async (event) => {
   if (!search && !game)
     return []
 
-  const query = {
-    $or: [
-      { id: game },
-      { $text: { $search: search } },
-    ],
+  // Build query conditionally - don't use $or when only one condition exists
+  const query: any = {}
+
+  if (game) {
+    query.id = game
+  }
+  else if (search) {
+    query.$text = { $search: search }
   }
 
   try {
-    return await Game.find(query)
+    return await Game
+      .find(query)
+      .lean()
   }
   catch (error) {
-    console.error(error)
-    return error
+    console.error('Game query error:', error)
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Failed to fetch games',
+    })
   }
 })
