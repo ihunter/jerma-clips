@@ -79,6 +79,7 @@ export default defineNuxtConfig({
       httpOnly: false,
     },
     storage: 'cookies',
+    debug: false,
   },
 
   typescript: {
