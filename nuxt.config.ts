@@ -39,6 +39,10 @@ export default defineNuxtConfig({
     defaultLocale: 'en', // not needed if you have @nuxtjs/i18n installed
   },
 
+  sitemap: {
+    zeroRuntime: true,
+  },
+
   app: {
     head: {
       htmlAttrs: {
