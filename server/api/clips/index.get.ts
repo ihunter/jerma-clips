@@ -1,5 +1,5 @@
-import { Clip } from '~~/server/models/clip.model'
-import { Game } from '~~/server/models/game.model'
+import { Clip } from '#server/models/clip.model'
+import { Game } from '#server/models/game.model'
 
 export default defineEventHandler(async (event) => {
   const { clipsLimit } = useRuntimeConfig().public

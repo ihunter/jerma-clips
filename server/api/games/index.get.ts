@@ -1,4 +1,4 @@
-import { Game } from '~~/server/models/game.model'
+import { Game } from '#server/models/game.model'
 
 export default defineEventHandler(async (event) => {
   const { search, game } = getQuery<GameQueryParams>(event)
