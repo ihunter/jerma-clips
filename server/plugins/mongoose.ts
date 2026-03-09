@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import { Game } from '#server/models/game.model'
 import mongoose from 'mongoose'
 
 export default defineNitroPlugin(async (nitroApp) => {
@@ -12,6 +13,8 @@ export default defineNitroPlugin(async (nitroApp) => {
       serverSelectionTimeoutMS: 5000,
       socketTimeoutMS: 45000,
     })
+
+    Game.init()
 
     mongoose.connection.on('error', (error) => {
       console.error('MongoDB connection error:', error)
