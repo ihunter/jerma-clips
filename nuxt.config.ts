@@ -90,5 +90,10 @@ export default defineNuxtConfig({
     strict: true,
   },
 
+  routeRules: {
+    '/api/clips/**': { cache: { maxAge: 60 } },
+    '/api/games/**': { cache: { maxAge: 300 } },
+  },
+
   compatibilityDate: '2024-08-08',
 })

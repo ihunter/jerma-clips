@@ -92,11 +92,39 @@ function setDateFilter() {
       </div>
     </div>
     <section class="d-flex">
+      <div>
+        <v-img
+          width="69"
+          lazy-src="~/assets/images/game_box_art_placeholder.jpg"
+          aspect-ratio="13/18"
+          :src="formattedGameBoxArtUrl"
+          :title="gameName"
+          :alt="`Game box art for ${gameName}`"
+          @click="gameId && updateQuery({ game: [gameId] }) "
+        >
+          <template #placeholder>
+            <v-img src="~/assets/images/game_box_art_placeholder.jpg" alt="placeholder" cover />
+          </template>
+        </v-img>
+      </div>
+      <div class="pa-2 overflow-hidden">
+        <h4 class="text-truncate ma-0 mb-2" :title="title">
+          {{ title }}
+        </h4>
+        <div class="text-subtitle-2" :title="`Clipped by ${creatorName}}`">
+          Clipped by <span class="filter" @click="updateQuery({ creator: creatorName })">{{ creatorName }}</span>
+        </div>
+        <div class="text-subtitle-2" :title="`on ${createdAtCalendar} at ${createdAtTime}`">
+          on <span class="filter" data-allow-mismatch @click="setDateFilter">{{ createdAtCalendar }}</span> at <span data-allow-mismatch>{{ createdAtTime }}</span>
+        </div>
+      </div>
+    </section>
+    <!-- <section class="d-flex">
       <div class="filter">
         <v-img
-          width="52"
-          height="72"
+          :width="52"
           lazy-src="~/assets/images/game_box_art_placeholder.jpg"
+          cover
           :src="formattedGameBoxArtUrl"
           :title="gameName"
           :alt="`Game box art for ${gameName}`"
@@ -118,7 +146,7 @@ function setDateFilter() {
           on <span class="filter" data-allow-mismatch @click="setDateFilter">{{ createdAtCalendar }}</span> at <span data-allow-mismatch>{{ createdAtTime }}</span>
         </div>
       </div>
-    </section>
+    </section> -->
   </v-card>
 </template>
 

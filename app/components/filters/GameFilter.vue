@@ -58,10 +58,10 @@ watch(game, (value) => {
     <template #item="{ props, item }">
       <v-list-item
         v-bind="props"
-        :title="item.title"
+        :title="item.name"
       >
         <template #prepend>
-          <v-img width="60" height="80" :src="item.raw.box_art_url" />
+          <v-img width="60" height="80" :src="item.box_art_url" />
         </template>
       </v-list-item>
     </template>
