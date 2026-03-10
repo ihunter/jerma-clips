@@ -1,7 +1,7 @@
-<script setup>
+<script setup lang="ts">
 const { updateQuery, query } = useQueryBuilder()
 
-const search = ref(query.value.title)
+const search = ref(query.value.title?.toString())
 
 function searchTitle() {
   updateQuery({ title: search.value })

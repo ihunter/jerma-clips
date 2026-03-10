@@ -119,34 +119,6 @@ function setDateFilter() {
         </div>
       </div>
     </section>
-    <!-- <section class="d-flex">
-      <div class="filter">
-        <v-img
-          :width="52"
-          lazy-src="~/assets/images/game_box_art_placeholder.jpg"
-          cover
-          :src="formattedGameBoxArtUrl"
-          :title="gameName"
-          :alt="`Game box art for ${gameName}`"
-          @click="gameId && updateQuery({ game: [gameId] }) "
-        >
-          <template #placeholder>
-            <v-img src="~/assets/images/game_box_art_placeholder.jpg" alt="placeholder" cover />
-          </template>
-        </v-img>
-      </div>
-      <div class="px-2 overflow-hidden">
-        <h4 class="text-truncate" :title="title">
-          {{ title }}
-        </h4>
-        <div class="text-subtitle-2" :title="`Clipped by ${creatorName}}`">
-          Clipped by <span class="filter" @click="updateQuery({ creator: creatorName })">{{ creatorName }}</span>
-        </div>
-        <div class="text-subtitle-2" :title="`on ${createdAtCalendar} at ${createdAtTime}`">
-          on <span class="filter" data-allow-mismatch @click="setDateFilter">{{ createdAtCalendar }}</span> at <span data-allow-mismatch>{{ createdAtTime }}</span>
-        </div>
-      </div>
-    </section> -->
   </v-card>
 </template>
 
