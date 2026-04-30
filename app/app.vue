@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineOgImageComponent('NuxtSeo', {
+defineOgImage('NuxtSeo', {
   title: 'Jerma Clip Search',
   description: 'Search for twitch clips of Jerma985 by title, game, and date.',
   theme: '#0AFC9E',
